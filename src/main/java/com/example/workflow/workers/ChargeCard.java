@@ -19,18 +19,11 @@ public class ChargeCard implements ExternalTaskHandler {
     private final static Logger logger = LoggerFactory.getLogger(ChargeCard.class);
     @Override
     public void execute(ExternalTask externalTask, ExternalTaskService externalTaskService) {
-        logger.info("Debut-");
 
         String item = externalTask.getVariable("item");
         Integer amount = externalTask.getVariable("amount");
 
         logger.info("Charging credit card with an amount of '" + amount + "'€ for the item '" + item + "'...");
-
-        /*try {
-            Desktop.getDesktop().browse(new URI("https://docs.camunda.org/get-started/quick-start/complete"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
 
         // Complete the task
         externalTaskService.complete(externalTask);
